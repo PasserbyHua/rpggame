@@ -20,7 +20,6 @@
 }
 label{
     display: inline-block;
-    margin-bottom: 7%;
 }
 .inputText{
     height: 30px;
@@ -50,7 +49,7 @@ label{
     background-color: #054fbe; 
 }
 p{
-    line-height: 30px;
+    line-height: 40px;
 }
 a{
     text-decoration: none;
@@ -59,4 +58,16 @@ a{
 h1{
     margin: 5%;
     color: #005ce6;
+}
+.logintip{
+    display: inline-block;
+    width: 100%;
+    margin: 2% 0% 2% 0%;
+    line-height: 20px;
+    text-align: left;
+    user-select: none;
+}
+
+.logintip:first-child{
+    color: red;
 }
