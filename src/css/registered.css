@@ -1,0 +1,76 @@
+.registeredRoot{
+    left: 0px;
+    top: -20%;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    max-height: 300px;
+    border: solid 2px #ffae00;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+
+.registeredRoot h1 {
+    margin: 5%;
+    color: #ffae00;
+}
+
+.registeredRoot label {
+    display: inline-block;
+}
+.registeredRoot .inputText {
+    height: 30px;
+    position: relative;
+    font-size: 20px;
+    border-radius: 3px;
+    color: #000000;
+    border: solid #ffae00 2px;
+    outline: none;
+    padding-left: 0.5em;
+}
+
+.registeredRoot .loginBtn {
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 黑体;
+    color: white;
+    outline: none;
+    border: solid #ffae00 0px;
+    border-radius: 5px;
+    background-color: #ffae00;
+}
+
+.registeredRoot .loginBtn:hover {
+    background-color: #cf9519;
+}
+
+.registeredRoot .loginBtn:active {
+    background-color: #e7a412;
+}
+
+
+.registeredRoot .logintip {
+    display: inline-block;
+    width: 100%;
+    margin: 2% 0% 2% 0%;
+    line-height: 20px;
+    text-align: left;
+    user-select: none;
+    color: red;
+}
+
+
+.registeredRoot .link {
+    text-decoration: none;
+    text-align: right;
+}
+
+.registeredRoot p {
+    line-height: 40px;
+}
