@@ -21,6 +21,7 @@ export default class GamePanel extends Component{
     }
 
     showPlayerList=(list)=>{
+        
     }
 
     callbackParent=(op,msg)=>{

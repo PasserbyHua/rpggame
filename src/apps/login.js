@@ -93,17 +93,20 @@ export default class Login extends Component {
                             if (this.state.oldAccount === account && this.state.oldPassword === password) {
                                 //console.log("已保存")
                             } else {
+                                //console.log("重新设置")
                                 setCookie("saveRecord", "true", 7)
                                 setCookie("account", account, 7)
                                 setCookie("password", password, 7)
                             }
                         } else {
+                            //console.log("未保存")
                             setCookie("saveRecord", "true", 7)
                             setCookie("account", account, 7)
                             setCookie("password", password, 7)
                         }
                     } else {
                         if (this.state.saveRecord) {
+                            //console.log("删除设置")
                             setCookie("saveRecord", "false")
                         }
                     }
