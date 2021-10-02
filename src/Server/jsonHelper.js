@@ -1,6 +1,6 @@
 
 
-module.exports = class jsonHelper {
+export default  class JsonHelper {
     createWsmessageJson = (operate, Message) => {
         return JSON.stringify({
             operate: operate,

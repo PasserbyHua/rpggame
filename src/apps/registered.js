@@ -15,11 +15,21 @@ export default class Registered extends Component {
     constructor() {
         super()
         document.getElementsByTagName("title")[0].innerText = 'RPGGame-注册'
+        document.getElementsByTagName("body")[0].style.animation="yellowHome 0.5s forwards"
+        document.getElementsByClassName("titleLogo")[0].classList.remove("titleLogoMin")
     }
 
-    login = () => {
-        //console.log("ok")
+    componentDidMount(){
+    }
 
+    login = (e) => {
+        e.preventDefault()
+        document.getElementsByTagName("body")[0].style.animation="yellowwhiteHome 0.5s forwards"
+        var registeredRoot=document.getElementsByClassName("registeredRoot")[0]
+        registeredRoot.style.animation = "myHide 0.5s"
+        setTimeout(()=>{
+            this.props.history.push("/")
+        },500)
     }
 
     registered = () => {
@@ -116,7 +126,7 @@ export default class Registered extends Component {
         var passTip = this.state.passTip
         return (
             <div className="registeredRoot">
-                <h1>注册</h1>
+                <h1>注册账号</h1>
                 <form>
                     <label>
                         <input name="account" type="text" className="inputText" placeholder="输入你的账号" value={account} onChange={this.setHandler} />
@@ -131,7 +141,7 @@ export default class Registered extends Component {
                     </label>
                 </form>
                 <input type="button" value="注册" className="loginBtn" onClick={this.registered} />
-                <p>已有账号? <Link to="/" className="link" onClick={this.login}>点此登录</Link></p>
+                <p>已有账号? <Link to="" className="link" onClick={this.login}>点此登录</Link></p>
             </div>
         )
     }

@@ -1,15 +1,13 @@
-/**
- * 参数：[socketOpen|socketClose|socketMessage|socketError] = func，[socket连接成功时触发|连接关闭|发送消息|连接错误]
- * timeout：连接超时时间
- * @type {module.webSocket}
- */
+
+import JsonHelper from '../Server/jsonHelper'
 
 
-module.exports = class webSocket {
+var jsonHelp = null
+export default class MyWebSocket {
 
-    constructor(url,reView) {
+    constructor(url, reView) {
         this.url = url
-        this.reView=reView
+        this.reView = reView
         this.socketEnable = false
         this.socket = null
         this.status = 0
@@ -19,9 +17,9 @@ module.exports = class webSocket {
         if (this.socketEnable) {
             console.log("已连接服务器")
         } else {
-            console.log("尝试连接服务器")
             const url = this.url
             if ("WebSocket" in window) {
+                jsonHelp = new JsonHelper()
                 this.socket = new WebSocket(url)
                 this.socket.onopen = this.connOpen
                 this.socket.onmessage = this.connReceive
@@ -35,14 +33,31 @@ module.exports = class webSocket {
     }
 
     connOpen = () => {
-        console.log("连接成功")
+        //console.log("连接成功")
+        setInterval(() => {
+            this.sendMessage(jsonHelp.createWsmessageJson("hart", ""))
+        }, 30000);
     }
 
-    connReceive = (msg) => {
-        console.log("数据接收msg:" + msg.data)
-        const json=JSON.parse(msg.data)
-        console.log("数据接收:" + json)
-        this.reView(0,json)
+    connReceive = (wsmsg) => {
+        console.log("数据接收msg:" + wsmsg.data)
+        const json = JSON.parse(wsmsg.data)
+        switch (json["operate"]) {
+            case "LoginReply":
+                const jsonLoginReply = json["Message"]
+                if (jsonLoginReply["sOrF"]) {
+                    this.reView("LoginStatus", "OK")
+                } else {
+                    this.reView("LoginStatus", "error")
+                }
+                break;
+            case "CharacterListReply":
+                const jsonCharacterList=json["Message"]
+                this.reView("PlayerList", jsonCharacterList)
+                break;
+            default:
+                break;
+        }
     }
 
     connShutdown = () => {

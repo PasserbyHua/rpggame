@@ -2,3 +2,68 @@
     margin:0;
     padding: 0;
 }
+
+body{
+    background-color: #0066ff;
+    text-align: center;
+}
+
+.titleLogo{
+    width: max-content;
+    margin: auto;
+    padding: 0% 2% 2% 2%;
+    border-radius: 0px 0px 10px 10px;
+    font-size: 100px;
+    text-align: center;
+    color: rgb(0, 55, 156);
+    user-select: none;
+    opacity: 0.8;
+    box-shadow: 0px 0px 10px #000000;
+    transition: font-size 0.5s;
+}
+
+.titleLogoMin{
+    font-size: 30px;
+    padding: 0% 2% 1% 2%;
+}
+
+.titleLogoMin:hover{
+    font-size: 100px;
+    padding: 0% 2% 1% 2%;
+}
+
+@keyframes blueHome {
+    from{
+        background-color: #ffffff;
+    }
+    to{
+        background-color: #0066ff;
+    }
+}
+
+@keyframes yellowHome {
+    from{
+        background-color: #ffffff;
+    }
+    to{
+        background-color: #ffae00;
+    }
+}
+
+@keyframes bluewhiteHome {
+    from{
+        background-color: #0066ff;
+    }
+    to{
+        background-color: #ffffff;
+    }
+}
+
+@keyframes yellowwhiteHome {
+    from{
+        background-color: #ffae00;
+    }
+    to{
+        background-color: #ffffff;
+    }
+}

@@ -19,11 +19,13 @@ export default class Login extends Component {
     constructor() {
         super()
         document.getElementsByTagName("title")[0].innerText = 'RPGGame-登录'
+        document.getElementsByTagName("body")[0].style.animation="blueHome 0.5s forwards"
+        document.getElementsByClassName("titleLogo")[0].classList.remove("titleLogoMin")
     }
     componentDidMount() {
         if (getCookie("saveRecord") === "true") {
-            const account=getCookie("account")
-            const password= getCookie("password")
+            const account = getCookie("account")
+            const password = getCookie("password")
             this.setState({
                 oldAccount: account,
                 oldPassword: password
@@ -129,6 +131,16 @@ export default class Login extends Component {
         }
     }
 
+    registered = (e) => {
+        e.preventDefault()
+        document.getElementsByTagName("body")[0].style.animation="bluewhiteHome 0.5s forwards"
+        var loginRoot = document.getElementsByClassName("loginRoot")[0]
+        loginRoot.style.animation = "myHide 0.5s"
+        setTimeout(() => {
+            this.props.history.push("/registered")
+        }, 500)
+    }
+
     setHandler = (e) => {
         const tag = e.target
         const value = tag.type === 'checkbox' ? tag.checked : tag.value
@@ -139,12 +151,12 @@ export default class Login extends Component {
     }
 
     render() {
-        var account=this.state.account
-        var password=this.state.password
-        var tip=this.state.tip
+        var account = this.state.account
+        var password = this.state.password
+        var tip = this.state.tip
         return (
             <div className="loginRoot">
-                <h1>RPGGame</h1>
+                <h1>登录账号</h1>
                 <form>
                     <label>
                         <input name="account" className="inputText" type="text" placeholder="账号" value={account} onChange={this.setHandler} />
@@ -159,12 +171,12 @@ export default class Login extends Component {
                         <br />
                         <label className="logintip" htmlFor="savePwd">
                             <input name="saveChecked" type="checkbox" id="savePwd" checked={this.state.saveChecked} onChange={this.setHandler} />
-                            记住密码
+                            <span>记住密码</span>
                         </label>
                     </label>
                 </form>
                 <input id="loginBtn" className="loginBtn" type="button" value="登录" onClick={this.login} />
-                <p>没有账号? <Link to="/registered" className="link">点此注册</Link></p>
+                <p>没有账号? <Link to="" className="link" onClick={this.registered}>点此注册</Link></p>
             </div>
         )
     }
