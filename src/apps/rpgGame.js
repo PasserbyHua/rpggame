@@ -2,6 +2,7 @@ import { Component } from 'react'
 import '../css/rpgGame.css'
 import Socket from '../Server/serverHelper'
 import jsonHelper from '../Server/jsonHelper'
+import GamePanel from './gameApp/gamePanel'
 
 var token = ""
 var serverSocket = null
@@ -48,7 +49,7 @@ export default class RPGGame extends Component {
     render() {
         return (
             <div className="gameRoot">
-                <h1>游戏画面</h1>
+                <GamePanel/>
             </div>
         )
     }
