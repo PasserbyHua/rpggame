@@ -40,7 +40,7 @@ module.exports = class webSocket {
 
     connReceive = (msg) => {
         console.log("数据接收msg:" + msg.data)
-        const json=JSON.parse(msg)
+        const json=JSON.parse(msg.data)
         console.log("数据接收:" + json)
         this.reView(0,json)
     }
