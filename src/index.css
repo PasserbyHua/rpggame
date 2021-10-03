@@ -67,3 +67,46 @@ body{
         background-color: #ffffff;
     }
 }
+
+
+@keyframes tipError {
+    0% {
+        color: red;
+    }
+    25% {
+        top: -5px;
+    }
+    50% {
+        top: 5px;
+    }
+    75% {
+        top: -5px;
+    }
+    100% {
+        color: red;
+        top: 0px;
+    }
+}
+
+@keyframes tipErrorRe {
+    0% {
+        color: red;
+        top: 0px;
+    }
+    25% {
+        color: red;
+        top: -5px;
+    }
+    50% {
+        color: red;
+        top: 5px;
+    }
+    75% {
+        color: red;
+        top: -5px;
+    }
+    100% {
+        color: red;
+        top: 0px;
+    }
+}

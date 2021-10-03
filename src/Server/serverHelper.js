@@ -40,7 +40,7 @@ export default class MyWebSocket {
     }
 
     connReceive = (wsmsg) => {
-        console.log("数据接收msg:" + wsmsg.data)
+        console.log("getmsg:" + wsmsg.data)
         const json = JSON.parse(wsmsg.data)
         switch (json["operate"]) {
             case "LoginReply":
@@ -52,8 +52,26 @@ export default class MyWebSocket {
                 }
                 break;
             case "CharacterListReply":
-                const jsonCharacterList=json["Message"]
+                const jsonCharacterList = json["Message"]
                 this.reView("PlayerList", jsonCharacterList)
+                break;
+            case "CreateCharacterReply":
+                const jsonCreateCharacter = json["Message"]
+                this.reView("CreatePlayerResult", jsonCreateCharacter)
+                break;
+            case "ChooseACharacterReply":
+                const jsonChooseACharacter = json["Message"]
+                this.reView("SelectPlayerResult", jsonChooseACharacter)
+                break;
+
+            case "AttributeReply":
+                const jsonAttribute = json["Message"]
+                this.reView("Attribute", jsonAttribute)
+                break;
+
+            case "BackpackReply":
+                const jsonBackpack = json["Message"]
+                this.reView("Backpack", jsonBackpack)
                 break;
             default:
                 break;
@@ -65,6 +83,7 @@ export default class MyWebSocket {
     }
 
     sendMessage = (msg) => {
+        console.log("sendmsg" + msg)
         this.socket.send(msg)
     }
 };

@@ -7,9 +7,9 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    z-index: 100;
+    z-index: 1000;
     border-radius: 5px;
-    background-color: #3286ca33;
+    background-color: #00000052;
 }
 
 .back p{

@@ -16,14 +16,14 @@ ReactDOM.render((
             <Route exact path="/" component={Login} />
             <Route path="/registered" component={Registered} />
             <Route path="/rpgGame" component={RPGGame} />
-            <Route component={Error}/>
+            <Route component={Error} />
         </Switch>
     </Router>
 ), root)
 
 window.onload = function () {
     //console.log("ok");
-    document.getElementsByClassName("titleLogo")[0].innerHTML="RPG大冒险"
+    document.getElementsByClassName("titleLogo")[0].innerHTML = "RPG大冒险"
 }
 
 

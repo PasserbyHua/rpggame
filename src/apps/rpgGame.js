@@ -12,8 +12,6 @@ var jsonHelp = null
 
 
 export default class RPGGame extends Component {
-    state = {
-    }
     constructor() {
         super()
         document.getElementsByTagName("title")[0].innerText = 'RPGGame'
@@ -43,6 +41,7 @@ export default class RPGGame extends Component {
     }
 
     refreshWindow = (appId, serverMsg) => {
+        //console.log("viewmsg" + serverMsg)
         switch (appId) {
             case "LoginStatus":
                 if (serverMsg === "OK") {
@@ -56,6 +55,19 @@ export default class RPGGame extends Component {
                 this.sendGamePanel("PlayerList", serverMsg)
                 this.sendGameTip(-1, "null")
                 break;
+            case "CreatePlayerResult":
+                serverSocket.sendMessage(jsonHelp.createWsmessageJson("CharacterList", ""))
+                this.sendGamePanel("CreatePlayer", serverMsg)
+                break
+            case "SelectPlayerResult":
+                this.sendGamePanel("SelectPlayer", serverMsg)
+                break
+            case "Attribute":
+                //console.log("AttributeReply:" + serverMsg)
+                break
+            case "Backpack":
+                //console.log("BackpackReply:" + serverMsg)
+                break
             default:
                 break;
         }
@@ -70,7 +82,36 @@ export default class RPGGame extends Component {
     }
 
     callbackGamePanel = (op, msg) => {
-        console.log(op, msg)
+        switch (op) {
+            case "createCharacter":
+                const createmsg = { name: msg }
+                serverSocket.sendMessage(jsonHelp.createWsmessageJson("CreateCharacter", createmsg))
+                break;
+            case "exit":
+                this.props.history.push("/")
+                break;
+            case "selectPlayer":
+                //console.log(msg)
+                if (msg === -1) {
+                    this.sendGameTip(1, "账号已封禁无法选择！")
+                    return
+                } else {
+                    this.sendGameTip(0, "加载角色数据...")
+                    const selectmsg = { SerialNumber: msg }
+                    serverSocket.sendMessage(jsonHelp.createWsmessageJson("ChooseACharacter", selectmsg))
+                }
+                break;
+            case "loadInfo":
+                if (msg) {
+                    serverSocket.sendMessage(jsonHelp.createWsmessageJson("GetAttribute", ""))
+                    serverSocket.sendMessage(jsonHelp.createWsmessageJson("GetBackpack", ""))
+                } else {
+                    this.sendGameTip(1, "加载数据失败")
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     callbackGameTip = (op, msg) => {
@@ -80,8 +121,8 @@ export default class RPGGame extends Component {
     render() {
         return (
             <div className="gameRoot">
-                <GamePanel getSend={this.getSendGamePanel} callback={this.callbackGamePanel} />
                 <GameTip getSend={this.getSendGameTip} callback={this.callbackGameTip} />
+                <GamePanel getSend={this.getSendGamePanel} callback={this.callbackGamePanel} />
             </div>
         )
     }
