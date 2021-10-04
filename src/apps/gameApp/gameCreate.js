@@ -10,6 +10,12 @@ export default class GameCreate extends Component {
         tip: "",
         re: true,
         btnEnable: true,
+        animation:""
+    }
+
+    constructor(){
+        super()
+        console.log("GameCreate组件加载")
     }
 
     setHandler = (e) => {
@@ -39,14 +45,16 @@ export default class GameCreate extends Component {
                     characterName: "",
                     tip: "长度在4到8位之间",
                     btnEnable: true,
+                    animation:"show 1s"
                 })
                 break;
             case "createRes":
                 console.log(msg.msg.sOrF)
                 if (msg.msg.sOrF) {
                     this.setState({
-                        tip: "创建成功!"
-                    })
+                        tip: "创建成功!",
+                        animation:"hide 1s forwards"
+                    })  
                     setTimeout(()=>{
                         this.setState({
                             Hide: "none"
@@ -106,7 +114,7 @@ export default class GameCreate extends Component {
     render() {
         var characterName = this.state.characterName
         return (
-            <div className={createStyle.back} style={{ display: this.state.Hide }}>
+            <div className={createStyle.back} style={{ display: this.state.Hide,animation:this.state.animation }}>
                 <div  className={createStyle.context}>
                     <p>请输入你的角色名</p>
                     <input className={createStyle.input} type="text" name="characterName" placeholder="角色名" value={characterName} onChange={this.setHandler} />

@@ -6,12 +6,14 @@ export default class PlayerList extends Component {
 
     state = {
         Hide: "none",
-        list: null
+        list: null,
+        animation: ""
     }
 
-    /* constructor(props) {
+    constructor(props) {
         super(props)
-    } */
+        console.log("PlayerList组件加载")
+    }
 
     componentDidMount = () => {
         MessageHandler.addListener("callPlayerList", this.getPanelMessage)
@@ -28,13 +30,12 @@ export default class PlayerList extends Component {
                 MessageHandler.emit("callbackPlayerList", backMsg)
                 break;
             case "selectRes":
-                var loadMsg = { op: "loadPlayerInfo", msg: false }
                 if (msg.msg.sOrF) {
                     this.setState({
                         Hide: "none"
                     })
-                    loadMsg.msg = true
                 }
+                const loadMsg = { op: "loadPlayerInfo", msg: msg.msg.sOrF }
                 MessageHandler.emit("callbackPlayerList", loadMsg)
                 break;
             default:
@@ -54,6 +55,9 @@ export default class PlayerList extends Component {
                 list: list
             })
         }
+        this.setState({
+            animation: "show 0.5s"
+        })
     }
 
     selectItem = (index) => {
@@ -73,7 +77,7 @@ export default class PlayerList extends Component {
 
     render() {
         return (
-            <div className={playerListStyle.back} style={{ display: this.state.Hide }}>
+            <div className={playerListStyle.back} style={{ display: this.state.Hide, animation: this.state.animation }}>
                 <div className={playerListStyle.hideScroll}>
                     <ul>
                         {
@@ -83,9 +87,9 @@ export default class PlayerList extends Component {
                                     (item, index) => {
                                         return (
                                             <li key={index} className={item.IsBaned ? playerListStyle.ban : ""}>
-                                                <div onClick={(e) => { item.IsBaned ? this.selectItem(-1) : this.selectItem(item.ID) }}>
+                                                <div onClick={(e) => { item.IsBaned ? this.selectItem(-1) : this.selectItem(index + 1) }}>
                                                     <p style={{ textAlign: "left" }}>
-                                                        <span className={playerListStyle.pid}>{item.ID}</span>
+                                                        <span className={playerListStyle.pid}>{index + 1}</span>
                                                         <span className={playerListStyle.name}>{item.IsBaned ? item.Name + "[封禁]" : item.Name}</span>
                                                         <span className={playerListStyle.level}>等级 {item.Level}</span>
                                                     </p>

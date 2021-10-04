@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/login.css'
 import { setCookie, getCookie } from '../Cookie'
+import ServerAPI from "../Server/config.json"
 
 export default class Login extends Component {
     state = {
@@ -18,6 +19,7 @@ export default class Login extends Component {
 
     constructor() {
         super()
+        console.log("Login组件加载")
         document.getElementsByTagName("title")[0].innerText = 'RPGGame-登录'
         document.getElementsByTagName("body")[0].style.animation="blueHome 0.5s forwards"
         document.getElementsByClassName("titleLogo")[0].classList.remove("titleLogoMin")
@@ -61,7 +63,7 @@ export default class Login extends Component {
                 loginEnable: false,
                 tip: "正在登录中..."
             });
-            const url = "http://119.29.195.22:8888/api/Account/Login"
+            const url = ServerAPI.serverAPIip+"/api/Account/Login"
             var data = {
                 userName: account,
                 password: password

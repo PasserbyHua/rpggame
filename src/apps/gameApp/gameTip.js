@@ -7,39 +7,43 @@ export default class GameTip extends Component {
     state = {
         op: 0,
         hide: "none",
-        msg: ""
+        msg: "",
+        msgid: ""
     }
-    /* constructor(props) {
+    constructor(props) {
         super(props)
-    } */
+        console.log("GameTip组件加载")
+    }
 
     componentDidMount() {
         this.props.getSend(this.updateTipInfo)
     }
 
-    updateTipInfo = (op, msg) => {
+    updateTipInfo = (op, msg, msgid) => {
         if (op === -1) {
             this.setState({
                 op: op,
                 hide: "none",
-                msg: msg
+                msg: msg,
+                msgid: msgid
             })
             return
         }
         this.setState({
             op: op,
             hide: "block",
-            msg: msg
+            msg: msg,
+            msgid: msgid
         })
     }
 
-    callbackParent = (op, msg) => {
-        this.props.callback(op, msg)
+    callbackParent = (msg) => {
+        this.props.callback(this.state.msgid, msg)
     }
 
     confirm = (e) => {
         e.preventDefault()
-        this.callbackParent("tip", "yes")
+        this.callbackParent("yes")
         this.setState({
             op: -1,
             hide: "none",
@@ -49,7 +53,7 @@ export default class GameTip extends Component {
 
     cancel = (e) => {
         e.preventDefault()
-        this.callbackParent("tip", "no")
+        this.callbackParent("no")
         this.setState({
             op: -1,
             hide: "none",

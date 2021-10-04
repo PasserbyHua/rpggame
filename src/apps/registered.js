@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/registered.css'
+import ServerAPI from "../Server/config.json"
 
 export default class Registered extends Component {
 
@@ -14,6 +15,7 @@ export default class Registered extends Component {
 
     constructor() {
         super()
+        console.log("Registered组件加载")
         document.getElementsByTagName("title")[0].innerText = 'RPGGame-注册'
         document.getElementsByTagName("body")[0].style.animation="yellowHome 0.5s forwards"
         document.getElementsByClassName("titleLogo")[0].classList.remove("titleLogoMin")
@@ -73,7 +75,7 @@ export default class Registered extends Component {
                 registeredEnable: false,
                 passTip: "正在注册中..."
             });
-            const url = "http://119.29.195.22:8888/api/Account/Register"
+            const url = ServerAPI.serverAPIip+"/api/Account/Register"
             var data = {
                 userName: account,
                 password: password

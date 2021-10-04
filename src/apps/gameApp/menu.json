@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "name": "set",
+        "img":"../../img/logo.png",
+        "text":"设置"
+    },
+    {
+        "id": 1,
+        "name": "pack",
+        "img":"../../img/logo.png",
+        "text":"背包"
+    },
+    {
+        "id": 3,
+        "name": "info",
+        "img":"../../img/logo.png",
+        "text":"个人信息"
+    }
+]

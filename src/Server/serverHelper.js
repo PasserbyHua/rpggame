@@ -68,7 +68,6 @@ export default class MyWebSocket {
                 const jsonAttribute = json["Message"]
                 this.reView("Attribute", jsonAttribute)
                 break;
-
             case "BackpackReply":
                 const jsonBackpack = json["Message"]
                 this.reView("Backpack", jsonBackpack)
@@ -79,7 +78,8 @@ export default class MyWebSocket {
     }
 
     connShutdown = () => {
-        console.log("连接关闭")
+        console.log("socket断开")
+        this.reView("SocketError", "ShutDown")
     }
 
     sendMessage = (msg) => {
