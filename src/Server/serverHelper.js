@@ -66,11 +66,11 @@ export default class MyWebSocket {
 
             case "AttributeReply":
                 const jsonAttribute = json["Message"]
-                this.reView("Attribute", jsonAttribute)
+                this.reView("AttributeInfo", jsonAttribute)
                 break;
             case "BackpackReply":
                 const jsonBackpack = json["Message"]
-                this.reView("Backpack", jsonBackpack)
+                this.reView("BackpackInfo", jsonBackpack)
                 break;
             default:
                 break;

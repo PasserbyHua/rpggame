@@ -8,7 +8,7 @@
     width: 400px;
     height: 550px;
     border-radius: 5px;
-    background-color: coral;
+    background-color: rgb(41, 79, 245);
     user-select: none;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
@@ -17,7 +17,7 @@
     width: 380px;
     height: 100%;
     border-radius: 5px;
-    background-color: rgb(192, 60, 12);
+    background-color: rgb(12, 120, 192);
     overflow-y: auto;
 }
 
@@ -37,7 +37,7 @@
 .back li {
     width: 340px;
     height: 10%;
-    background-color: coral;
+    background-color: rgb(15, 142, 192);
     border-radius: 5px;
     margin: auto;
     margin: 3%;
@@ -50,29 +50,34 @@
 
 .back li:hover {
     color: rgb(167, 165, 165);
-    background-color: rgb(192, 91, 32);
+    background-color: rgb(66, 27, 156);
 }
 .back li:active {
-    background-color: rgb(216, 85, 10);
+    background-color: rgb(109, 19, 255);
 }
 
 
 
-.pid {
+.head {
     width: 20%;
-    color: #ff5100;
+    color: #00aeff;
     text-align: center;
+}
+
+.head img{
+    width: 50%;
+    margin-top: 5%;
 }
 
 .name {
     width: 40%;
-    color: #ca1a1a;
+    color: #ffffff;
     overflow: hidden;
 }
 
 .level {
     width: 40%;
-    color: #b90dab;
+    color: #0db9ab;
     text-align: center;
 }
 
@@ -83,17 +88,17 @@
     width: 90%;
     height: 7%;
     border-radius: 5px;
-    background-color: rgb(216, 85, 10);
+    background-color: rgb(55, 10, 216);
     cursor: pointer;
     margin: 1%;
 }
 
 .menu:hover {
-    background-color: rgb(180, 83, 26);
+    background-color: rgb(64, 39, 156);
 }
 
 .menu:active {
-    background-color: rgb(216, 85, 10);
+    background-color: rgb(55, 10, 216);
 }
 
 .menu span {
@@ -125,7 +130,6 @@
     width: 90%;
     height: 400px;
     border-radius: 5px;
-    background-color: rgb(192, 60, 12);
     overflow: hidden;
 }
 

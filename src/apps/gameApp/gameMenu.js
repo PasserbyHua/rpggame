@@ -11,13 +11,12 @@ export default class GameMenu extends Component {
     }
 
 
-    componentDidMount = () => {
+    componentDidMount = () => {//加载完成调用
         MessageHandler.addListener("callMenu", this.getPanelMsg)
-        const menuMsg = { op: "comloadingOK", msg: "" }
-        MessageHandler.emit("callbackMenu", menuMsg)
+        MessageHandler.emit("callbackLoadOK", { op: "comloadingOK", msg: "" })
     }
 
-    componentWillUnmount = () => {
+    componentWillUnmount = () => {//删除组件调用
         MessageHandler.removeListener("callMenu", this.getPanelMsg)
     }
     getPanelMsg = (pmsg) => {
@@ -32,8 +31,20 @@ export default class GameMenu extends Component {
         console.log("GameMenu组件加载")
     }
 
-    BtnClick = (e, item) => {
-        console.log(e, item)
+    BtnClick = (e, item) => {//菜单按钮
+        switch (item.name) {
+            case "set":
+                MessageHandler.emit("callbackMenu", { op: "showSet" })
+                break;
+            case "info":
+                MessageHandler.emit("callbackMenu", { op: "showAttribule" })
+                break;
+            case "pack":
+                MessageHandler.emit("callbackMenu", { op: "showPack" })
+                break;
+            default:
+                break;
+        }
     }
 
     hide = () => {
@@ -59,7 +70,7 @@ export default class GameMenu extends Component {
                         (item, index) => {
                             return (
                                 <li key={index} className={menuStyle.item} onClick={(e) => { this.BtnClick(e, item) }}>
-                                    <img src="./images/logo.png" alt={item.name} className={menuStyle.btnimg} />
+                                    <img src={item.img} alt={item.name} className={menuStyle.btnimg} />
                                     <p className={menuStyle.btnp}>{item.text}</p>
                                 </li>
                             )

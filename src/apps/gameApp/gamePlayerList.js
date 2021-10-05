@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import playerListStyle from '../../css/gameAppCss/gamePlayerList.module.css'
 import MessageHandler from '../../Server/eventHandler'
+import headID from "./headID.json"
 
 export default class PlayerList extends Component {
 
@@ -26,8 +27,6 @@ export default class PlayerList extends Component {
         switch (msg.op) {
             case "playListRes":
                 this.createList(msg.msg)
-                const backMsg = { op: "confirmReceipt", msg: "OK" }
-                MessageHandler.emit("callbackPlayerList", backMsg)
                 break;
             case "selectRes":
                 if (msg.msg.sOrF) {
@@ -35,8 +34,7 @@ export default class PlayerList extends Component {
                         Hide: "none"
                     })
                 }
-                const loadMsg = { op: "loadPlayerInfo", msg: msg.msg.sOrF }
-                MessageHandler.emit("callbackPlayerList", loadMsg)
+                MessageHandler.emit("callbackPlayerList", { op: "loadPlayerInfo", msg: msg.msg.sOrF })
                 break;
             default:
                 break;
@@ -61,18 +59,15 @@ export default class PlayerList extends Component {
     }
 
     selectItem = (index) => {
-        const backMsg = { op: "selectID", index: index }
-        MessageHandler.emit("callbackPlayerList", backMsg)
+        MessageHandler.emit("callbackPlayerList", { op: "selectID", index: index })
     }
 
     createPlayer = () => {
-        const backMsg = { op: "create", msg: "null" }
-        MessageHandler.emit("callbackPlayerList", backMsg)
+        MessageHandler.emit("callbackPlayerList", { op: "create", msg: "null" })
     }
 
     exit = () => {
-        const backMsg = { op: "exit", msg: "null" }
-        MessageHandler.emit("callbackPlayerList", backMsg)
+        MessageHandler.emit("callbackPlayerList", { op: "exit", msg: "null" })
     }
 
     render() {
@@ -89,7 +84,7 @@ export default class PlayerList extends Component {
                                             <li key={index} className={item.IsBaned ? playerListStyle.ban : ""}>
                                                 <div onClick={(e) => { item.IsBaned ? this.selectItem(-1) : this.selectItem(index + 1) }}>
                                                     <p style={{ textAlign: "left" }}>
-                                                        <span className={playerListStyle.pid}>{index + 1}</span>
+                                                        <span className={playerListStyle.head}><img src={headID[item.AvatarID]} alt="head" /></span>
                                                         <span className={playerListStyle.name}>{item.IsBaned ? item.Name + "[封禁]" : item.Name}</span>
                                                         <span className={playerListStyle.level}>等级 {item.Level}</span>
                                                     </p>
@@ -102,10 +97,10 @@ export default class PlayerList extends Component {
                     </ul>
                 </div>
                 <div onClick={this.createPlayer} className={playerListStyle.menu}>
-                    <span style={{ color: "#902500" }}>创建角色</span>
+                    <span style={{ color: "white" }}>创建角色</span>
                 </div>
                 <div onClick={this.exit} className={playerListStyle.menu}>
-                    <span style={{ color: "#A90D05" }}>退出游戏</span>
+                    <span style={{ color: "white" }}>退出游戏</span>
                 </div>
             </div >
         )

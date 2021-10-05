@@ -93,7 +93,7 @@ export default class GameCreate extends Component {
                 re: !this.state.re,
                 btnEnable: false
             })
-            const msg = { op: "ok", name: this.state.characterName }
+            const msg = { op: "createInfo", name: this.state.characterName }
             MessageHandler.emit("callbackCreatePlayer", msg)
         }
     }

@@ -1,15 +1,15 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: #0066ff;
     text-align: center;
     min-width: 1300px;
 }
 
-.titleLogo{
+.titleLogo {
     width: max-content;
     margin: auto;
     padding: 0% 2% 2% 2%;
@@ -23,52 +23,51 @@ body{
     transition: font-size 0.5s;
 }
 
-.titleLogoMin{
+.titleLogoMin {
     font-size: 30px;
     padding: 0% 2% 1% 2%;
 }
 
-.titleLogoMin:hover{
+.titleLogoMin:hover {
     font-size: 100px;
     padding: 0% 2% 1% 2%;
 }
 
 @keyframes blueHome {
-    from{
+    from {
         background-color: #ffffff;
     }
-    to{
+    to {
         background-color: #0066ff;
     }
 }
 
 @keyframes yellowHome {
-    from{
+    from {
         background-color: #ffffff;
     }
-    to{
+    to {
         background-color: #ffae00;
     }
 }
 
 @keyframes bluewhiteHome {
-    from{
+    from {
         background-color: #0066ff;
     }
-    to{
+    to {
         background-color: #ffffff;
     }
 }
 
 @keyframes yellowwhiteHome {
-    from{
+    from {
         background-color: #ffae00;
     }
-    to{
+    to {
         background-color: #ffffff;
     }
 }
-
 
 @keyframes tipError {
     0% {
@@ -113,30 +112,30 @@ body{
 }
 
 @keyframes show {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
     }
 }
 
 @keyframes hide {
-    from{
+    from {
         opacity: 1;
     }
-    to{
+    to {
         opacity: 0;
     }
 }
 
 @keyframes menushow {
-    from{
+    from {
         position: relative;
         opacity: 0;
         bottom: -100px;
     }
-    to{
+    to {
         position: relative;
         opacity: 1;
         bottom: 0px;
@@ -144,14 +143,134 @@ body{
 }
 
 @keyframes menuhide {
-    from{
+    from {
         position: relative;
         opacity: 1;
         bottom: 0px;
     }
-    to{
+    to {
         position: relative;
         opacity: 0;
         bottom: -100px;
+    }
+}
+
+@keyframes packHide {
+    from {
+        width: 30%;
+        height: 75%;
+        opacity: 1;
+        bottom: 15%;
+    }
+    to {
+        width: 20%;
+        height: 55%;
+        opacity: 0;
+        bottom: 10%;
+    }
+}
+
+@keyframes packShow {
+    from {
+        width: 20%;
+        height: 55%;
+        opacity: 0;
+        bottom: 10%;
+    }
+    to {
+        width: 30%;
+        height: 75%;
+        opacity: 1;
+        bottom: 15%;
+    }
+}
+
+@keyframes infoHide {
+    from {
+        width: 30%;
+        height: 75%;
+        opacity: 1;
+        bottom: 15%;
+        right: 41%;
+    }
+    to {
+        width: 20%;
+        height: 55%;
+        opacity: 0;
+        bottom: 10%;
+        right: 30%;
+    }
+}
+
+@keyframes infoShow {
+    from {
+        width: 20%;
+        height: 55%;
+        opacity: 0;
+        bottom: 10%;
+        right: 30%;
+    }
+    to {
+        width: 30%;
+        height: 75%;
+        opacity: 1;
+        bottom: 15%;
+        right: 41%;
+    }
+}
+
+@keyframes setShow {
+    from {
+        width: 30%;
+        height: 50%;
+        opacity: 0;
+        bottom: 10%;
+        right: 15%;
+    }
+    to {
+        width: 50%;
+        height: 70%;
+        opacity: 1;
+        bottom: 15%;
+        right: 25%;
+    }
+}
+
+@keyframes setHide {
+    from {
+        width: 50%;
+        height: 70%;
+        opacity: 1;
+        bottom: 15%;
+        right: 25%;
+    }
+    to {
+        width: 30%;
+        height: 50%;
+        opacity: 0;
+        bottom: 10%;
+        right: 15%;
+    }
+}
+
+@keyframes headHide {
+    from {
+        top:0px;
+        opacity: 1;
+    }
+    to {
+        top:-100px;
+        opacity: 0;
+    }
+}
+
+@keyframes headShow {
+    from {
+        top:-100px;
+        opacity: 0;
+    }
+    to {
+        top:0px;
+        opacity: 1;
     }
 }
