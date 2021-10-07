@@ -30,6 +30,7 @@ export default class GameHeadMenu extends Component {
     getPanelMsg = (pmsg) => {
         switch (pmsg.op) {
             case "playerInfo":
+                console.log("接收playerInfo资源")
                 this.setState({ playerInfo: pmsg.msg })
                 break
             default:

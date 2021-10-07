@@ -21,6 +21,7 @@ export default class GamePack extends Component {
     getPanelMsg = (pmsg) => {
         switch (pmsg.op) {
             case "playerPack":
+                console.log("接收GamePack资源")
                 this.setState({
                     packinfo: pmsg.msg
                 })

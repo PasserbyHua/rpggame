@@ -42,7 +42,10 @@ export default class GameSet extends Component {
     render() {
         return (
             <div className={setStyle.back} style={{ display: this.state.hide, animation: this.state.animation }}>
-                <div>设置</div>
+                <div>
+                    <p>设置</p>
+                    <div></div>
+                </div>
                 <div className={setStyle.hideBtn} onClick={this.hideBtn}></div>
             </div>
         )

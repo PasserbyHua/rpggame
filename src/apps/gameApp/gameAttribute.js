@@ -20,6 +20,7 @@ export default class GameAttribute extends Component {
     getPanelMsg = (pmsg) => {
         switch (pmsg.op) {
             case "playerAttribute":
+                console.log("接收playerAttribute资源")
                 this.setState({
                     attributeStyle: pmsg.msg
                 })
