@@ -23,6 +23,7 @@ export default class RPGGame extends Component {
     }
     constructor() {
         super()
+        GameLoadInfoCount = 7
         console.log("RPGGame组件加载")
         document.getElementsByTagName("title")[0].innerText = 'RPGGame'
         document.getElementsByClassName("titleLogo")[0].classList.add("titleLogoMin")

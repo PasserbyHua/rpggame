@@ -10,10 +10,10 @@ export default class GameCreate extends Component {
         tip: "",
         re: true,
         btnEnable: true,
-        animation:""
+        animation: ""
     }
 
-    constructor(){
+    constructor() {
         super()
         console.log("GameCreate组件加载")
     }
@@ -45,25 +45,26 @@ export default class GameCreate extends Component {
                     characterName: "",
                     tip: "长度在4到8位之间",
                     btnEnable: true,
-                    animation:"show 1s"
+                    animation: "show 1s"
                 })
+                this.tip.current.style.animation = ""
                 break;
             case "createRes":
                 console.log(msg.msg.sOrF)
                 if (msg.msg.sOrF) {
                     this.setState({
                         tip: "创建成功!",
-                        animation:"hide 1s forwards"
-                    })  
-                    setTimeout(()=>{
+                        animation: "hide 1s forwards"
+                    })
+                    setTimeout(() => {
                         this.setState({
                             Hide: "none"
                         })
-                    },1000)
+                    }, 1000)
                 } else {
                     this.setState({
                         tip: "创建失败，请重新尝试",
-                        btnEnable:true
+                        btnEnable: true
                     })
                 }
                 break;
@@ -74,14 +75,14 @@ export default class GameCreate extends Component {
 
     ok = () => {
         if (!this.state.btnEnable) {
-            this.state.re ? this.tip.current.style.animation = "tipError 1s" : this.tip.current.style.animation = "tipErrorRe 1s"
+            this.state.re ? this.tip.current.style.animation = "tipError 0.5s" : this.tip.current.style.animation = "tipErrorRe 0.5s"
             this.setState({
                 re: !this.state.re
             })
             return
         }
         if (this.state.characterName.trim().length > 6 || this.state.characterName.trim().length < 4) {
-            this.state.re ? this.tip.current.style.animation = "tipError 1s" : this.tip.current.style.animation = "tipErrorRe 1s"
+            this.state.re ? this.tip.current.style.animation = "tipError 0.5s" : this.tip.current.style.animation = "tipErrorRe 0.5s"
             this.setState({
                 tip: "长度在4到8位之间的数字或字母，且不能为空！",
                 re: !this.state.re
@@ -114,8 +115,8 @@ export default class GameCreate extends Component {
     render() {
         var characterName = this.state.characterName
         return (
-            <div className={createStyle.back} style={{ display: this.state.Hide,animation:this.state.animation }}>
-                <div  className={createStyle.context}>
+            <div className={createStyle.back} style={{ display: this.state.Hide, animation: this.state.animation }}>
+                <div className={createStyle.context}>
                     <p>请输入你的角色名</p>
                     <input className={createStyle.input} type="text" name="characterName" placeholder="角色名" value={characterName} onChange={this.setHandler} />
                     <div className={createStyle.tip} ref={this.tip}><span>{this.state.tip}</span></div>

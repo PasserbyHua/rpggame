@@ -5,6 +5,7 @@
     top: 1%;
     width: 25%;
     height: 10%;
+    user-select: none;
 }
 
 .menu{
@@ -20,6 +21,7 @@
     border-radius: 50%;
     width: 20%;
     transition: box-shadow 0.1s;
+    /* pointer-events: none; */
 }
 
 .menu img:hover{
@@ -50,4 +52,20 @@
     line-height: 60px;
     color: white;
     user-select: none;
+}
+
+.level{
+    background-color: white;
+    position: relative;
+    left: -20px;
+    bottom: 10px;
+    color: rgb(0, 119, 255);
+    font-size: 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border: solid 2px white;
+    border-radius: 50%;
 }

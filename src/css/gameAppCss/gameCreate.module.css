@@ -14,7 +14,7 @@
     margin: auto;
     width: 500px;
     height: 300px;
-    background-color: rgb(241, 146, 21);
+    background-color: #0066FF;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     user-select: none;
@@ -23,7 +23,7 @@
 .back p {
     font-size: 30px;
     line-height: 120px;
-    color: rgb(216, 85, 10);
+    color: white;
 }
 
 .input {
@@ -31,7 +31,7 @@
     height: 40px;
     font-size: 20px;
     border-radius: 3px;
-    border: solid rgb(216, 85, 10) 2px;
+    border: solid #99CCCC 2px;
     outline: none;
     padding-left: 0.5em;
 }
@@ -41,23 +41,22 @@
     height: 40px;
     font-size: 21px;
     font-family: 黑体;
-    color: white;
+    color: #0066FF;
     outline: none;
     line-height: 40px;
-    border: solid #ffffff 0px;
     border-radius: 5px;
-    background-color: rgb(216, 85, 10);
+    background-color: #00C3FF;
     display: inline-block;
     position: absolute;
     bottom: 10%;
 }
 
 .btn:hover {
-    background-color: rgb(180, 83, 26);
+    background-color: rgb(212, 212, 212)
 }
 
 .btn:active {
-    background-color: rgb(216, 85, 10);
+    background-color: #ffffff;
 }
 
 .btn:first-child {
@@ -73,5 +72,5 @@
     width: 60%;
     margin: auto;
     text-align: left;
-    color: rgb(216, 85, 10);
+    color: #99CCCC;
 }

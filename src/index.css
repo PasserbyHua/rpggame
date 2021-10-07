@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 body {
@@ -74,12 +75,15 @@ body {
         color: red;
     }
     25% {
+        color: red;
         top: -5px;
     }
     50% {
+        color: red;
         top: 5px;
     }
     75% {
+        color: red;
         top: -5px;
     }
     100% {

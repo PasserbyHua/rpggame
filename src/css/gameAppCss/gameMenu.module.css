@@ -38,6 +38,15 @@
     color: rgb(0, 38, 151);
 }
 
+.back li:active .btnimg{
+    width: 50%;
+    transform:rotate(135deg);
+}
+
+.back li:active .btnp{
+    color: rgb(55, 97, 223);
+}
+
 .hidebtn{
     position: absolute;
     background-image: url("./img/HideBtn.png");

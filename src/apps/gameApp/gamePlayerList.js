@@ -97,10 +97,10 @@ export default class PlayerList extends Component {
                     </ul>
                 </div>
                 <div onClick={this.createPlayer} className={playerListStyle.menu}>
-                    <span style={{ color: "white" }}>创建角色</span>
+                    <span>创建角色</span>
                 </div>
                 <div onClick={this.exit} className={playerListStyle.menu}>
-                    <span style={{ color: "white" }}>退出游戏</span>
+                    <span>退出游戏</span>
                 </div>
             </div >
         )

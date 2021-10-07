@@ -58,6 +58,7 @@ export default class GameHeadMenu extends Component {
             <div className={headMenuStyle.back}>
                 <div className={headMenuStyle.menu} style={{ animation: this.state.Hide }}>
                     <img src={this.state.playerInfo === null ? headID[0] : headID[this.state.playerInfo.AvatarID]} alt="head" />
+                    <span className={headMenuStyle.level}>{this.state.playerInfo===null?"??":this.state.playerInfo.Level}</span>
                     <span className={headMenuStyle.name}>{this.state.playerInfo === null ? "加载中" : this.state.playerInfo.Name}</span>
                 </div>
                 <div className={headMenuStyle.hidebtn} onClick={this.hide} style={{ transform: this.state.hideBtnStyle }}></div>
