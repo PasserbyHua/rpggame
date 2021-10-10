@@ -114,6 +114,15 @@ export default class GamePanel extends Component {
 
     callbackSet = (msg) => {//设置界面回复
         switch (msg.op) {
+            case "exit":
+                this.callbackParent("exit", "")
+                break
+            case "reSelect":
+                this.setState({
+                    LoadUI: false
+                })
+                this.callbackParent("reSelect", "")
+                break;
             default:
                 break;
         }

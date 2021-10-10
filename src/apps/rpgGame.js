@@ -24,6 +24,7 @@ export default class RPGGame extends Component {
     constructor() {
         super()
         GameLoadInfoCount = 7
+        LoadingOKCount = 0
         console.log("RPGGame组件加载")
         document.getElementsByTagName("title")[0].innerText = 'RPGGame'
         document.getElementsByClassName("titleLogo")[0].classList.add("titleLogoMin")
@@ -57,9 +58,6 @@ export default class RPGGame extends Component {
                 const createmsg = { name: msg }
                 serverSocket.sendMessage(jsonHelp.createWsmessageJson("CreateCharacter", createmsg))
                 break;
-            case "exit":
-                this.props.history.push("/")
-                break;
             case "selectPlayer":
                 if (msg === -1) {
                     this.sendGameTip(1, "账号已封禁无法选择！", "selectPlayer")
@@ -82,6 +80,21 @@ export default class RPGGame extends Component {
                 break;
             case "comloadingOK":
                 this.loadGameInfoOK(op)
+                break;
+            case "reSelect":
+                GameLoadInfoCount = 7
+                LoadingOKCount = 0
+                this.sendGameTip(0, "游戏数据加载中...", "selectPlayer")
+                this.setState({
+                    list: null,
+                    playerInfo: null,
+                    playerAttribute: null,
+                    playerPack: null
+                })
+                serverSocket.sendMessage(jsonHelp.createWsmessageJson("CharacterList", ""))
+                break
+            case "exit":
+                this.props.history.push("/")
                 break;
             default:
                 break;

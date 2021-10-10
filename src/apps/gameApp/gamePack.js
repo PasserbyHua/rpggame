@@ -4,7 +4,7 @@ import MessageHandler from '../../Server/eventHandler'
 
 export default class GamePack extends Component {
     state = {
-        packinfo: "",
+        packinfo: null,
         hide: "none",
         animation: ""
     }
@@ -54,7 +54,51 @@ export default class GamePack extends Component {
     render() {
         return (
             <div className={packStyle.back} style={{ display: this.state.hide, animation: this.state.animation }}>
-                <div>背包</div>
+                <div className={packStyle.contextback}>
+                    <p>背包</p>
+                    <div className={packStyle.context}>
+                        <ul className={packStyle.packul}>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            <li className={packStyle.lis}></li>
+                            {
+                                /* this.state.packinfo !== null &&
+                                this.state.packinfo.map((item, index) => {
+                                    return (
+                                        <li key={index} className={packStyle.lis}></li>
+                                    )
+                                }) */
+                            }
+                        </ul>
+                    </div>
+                </div>
                 <div className={packStyle.hideBtn} onClick={this.hideBtn}></div>
             </div>
         )
