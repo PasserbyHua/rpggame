@@ -5,8 +5,11 @@ import MessageHandler from '../../Server/eventHandler'
 export default class GamePack extends Component {
     state = {
         packinfo: null,
+        packPageCount: 30,
+        packPage: 0,
+        packList: [],
         hide: "none",
-        animation: ""
+        animation: "",
     }
 
     componentDidMount = () => {//加载完成调用
@@ -41,6 +44,26 @@ export default class GamePack extends Component {
         }
     }
 
+    ShowPackList = () => {
+        var pack = [];
+        for (let index = 0; index < this.state.packPageCount; index++) {
+            pack.push(<li key={index} className={packStyle.lis}>{this.state.packList[index]}</li>)
+        }
+        return pack;
+    }
+
+    refreshPack = () => {
+        var startIndex = this.state.packPage * this.state.packPageCount
+        if (this.state.packinfo.length > startIndex) {
+            var packl = this.state.packList
+            for (let index = 0; (startIndex + index) < this.state.packinfo.length && index < 30; index++) {
+                packl[index] = this.state.packinfo[(startIndex + index)]
+            }
+            this.setState({
+                packList: packl
+            })
+        }
+    }
 
     constructor() {
         super()
@@ -58,44 +81,8 @@ export default class GamePack extends Component {
                     <p>背包</p>
                     <div className={packStyle.context}>
                         <ul className={packStyle.packul}>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            <li className={packStyle.lis}></li>
-                            {
-                                /* this.state.packinfo !== null &&
-                                this.state.packinfo.map((item, index) => {
-                                    return (
-                                        <li key={index} className={packStyle.lis}></li>
-                                    )
-                                }) */
-                            }
+                            {this.ShowPackList()}
+                            {/* console.log(this.state.packinfo) *//* this.state.packinfo === "null" && this.refreshPack() */}
                         </ul>
                     </div>
                 </div>

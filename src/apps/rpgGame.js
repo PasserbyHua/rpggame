@@ -118,12 +118,12 @@ export default class RPGGame extends Component {
                 this.sendGameTip(-1, "null", "PlayerList")
                 break;
             case "AttributeInfo":
-                this.loadGameInfoOK("Attribute")
                 this.setState({ playerAttribute: serverMsg })
+                this.loadGameInfoOK("Attribute")
                 break
             case "BackpackInfo":
-                this.loadGameInfoOK("Backpack")
                 this.setState({ playerPack: serverMsg })
+                this.loadGameInfoOK("Backpack")
                 break
             case "CreatePlayerResult":
                 serverSocket.sendMessage(jsonHelp.createWsmessageJson("CharacterList", ""))

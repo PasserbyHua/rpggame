@@ -113,7 +113,7 @@ export default class Login extends Component {
                         }
                     }
                     this.setState({
-                        tip: "登陆成功!"
+                        tip: "登录成功!"
                     })
                     setTimeout(() => {
                         this.props.history.push({

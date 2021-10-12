@@ -42,7 +42,7 @@
     font-size: 20px;
     border-radius: 3px;
     color: #000000;
-    border: solid #005ce6 2px;
+    border: solid #00A1FE 2px;
     outline: none;
     padding-left: 0.5em;
 }
@@ -56,7 +56,7 @@
     outline: none;
     border: solid #ffffff 0px;
     border-radius: 5px;
-    background-color: #005ce6;
+    background-color: #00A1FE;
 }
 
 .loginRoot .loginBtn:hover {
