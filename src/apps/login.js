@@ -5,7 +5,7 @@ import '../css/login.css'
 import { setCookie, getCookie } from '../Cookie'
 import ServerAPI from "../Server/config.json"
 
-export default class Login extends Component {
+export default class activate extends Component {
     state = {
         account: "",
         password: "",

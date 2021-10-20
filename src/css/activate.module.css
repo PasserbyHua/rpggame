@@ -1,0 +1,20 @@
+.back {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    border-radius: 5px;
+    background-color: pink;
+}
+
+.back h1 {
+    height: 90%; 
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
